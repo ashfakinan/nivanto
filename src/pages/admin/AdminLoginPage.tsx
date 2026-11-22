@@ -17,7 +17,7 @@ import { auth } from '../../lib/firebase';
 
 const ADMIN_PHONE_NUMBER = '+8801720266825';
 const MAX_PASSWORD_ATTEMPTS = 5;
-const PASSWORD_LOCKOUT_MS = 15 * 60 * 1000; // 15 minutes
+const PASSWORD_LOCKOUT_MS = 24 * 60 * 60 * 1000; // 24 hours
 const MAX_OTP_ATTEMPTS = 3;
 const OTP_LOCKOUT_MS = 30 * 60 * 1000; // 30 minutes
 const OTP_EXPIRY_SECONDS = 60;
@@ -27,8 +27,12 @@ const OTP_LOCKOUT_KEY = 'nivanto_admin_otp_lockout';
 
 function formatCountdown(msRemaining: number): string {
   const totalSec = Math.max(0, Math.ceil(msRemaining / 1000));
-  const mins = Math.floor(totalSec / 60);
+  const hrs = Math.floor(totalSec / 3600);
+  const mins = Math.floor((totalSec % 3600) / 60);
   const secs = totalSec % 60;
+  if (hrs > 0) {
+    return `${hrs}h ${String(mins).padStart(2, '0')}m`;
+  }
   return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
 }
 
@@ -37,7 +41,7 @@ export function AdminLoginPage() {
   const { user, otpVerified, setOtpVerified } = useAuth();
 
   const [step, setStep] = useState<'password' | 'otp'>('password');
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('ashfakinan26@gmail.com');
   const [password, setPassword] = useState('');
   const [otpCode, setOtpCode] = useState('');
 
@@ -251,7 +255,7 @@ export function AdminLoginPage() {
           // ignore
         }
         setErrorMessage(
-          'Too many failed login attempts. Login is disabled for 15 minutes.'
+          'Too many failed login attempts. Login is disabled for 24 hours.'
         );
       } else {
         const remaining = MAX_PASSWORD_ATTEMPTS - nextFails;
