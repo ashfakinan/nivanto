@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --nivanto-blue: #2B5FAA;
+    --nivanto-amber: #E8900A;
+    --nivanto-bg: #F8F6F2;
+    --nivanto-dark: #1C2440;
+    --nivanto-muted: #6B7280;
+    --nivanto-border: #E5E1D8;
+    --nivanto-page-bg: #EDEAE4;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #F8F6F2;
+    color: #1C2440;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Syne', sans-serif;
+  }
+}
+
+.font-display {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-body {
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.text-balance {
+  text-wrap: balance;
+}

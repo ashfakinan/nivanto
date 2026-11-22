@@ -1,0 +1,276 @@
+{
+  "entities": {
+    "HomeContent": {
+      "title": "HomeContent",
+      "description": "Editable homepage hero, intro, and CTA copy for Nivanto.",
+      "type": "object",
+      "properties": {
+        "hero_headline": {
+          "type": "string",
+          "description": "Main hero headline on the home page.",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "hero_subtext": {
+          "type": "string",
+          "description": "Hero supporting tagline or subtext.",
+          "minLength": 1,
+          "maxLength": 320
+        },
+        "intro_paragraph": {
+          "type": "string",
+          "description": "Brief introductory paragraph below the hero.",
+          "minLength": 1,
+          "maxLength": 800
+        },
+        "cta_text": {
+          "type": "string",
+          "description": "Call-to-action heading text at the bottom of the home page.",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when content was last updated."
+        }
+      },
+      "required": ["hero_headline", "hero_subtext", "intro_paragraph", "cta_text"]
+    },
+    "AboutContent": {
+      "title": "AboutContent",
+      "description": "Editable about and vision page content for Nivanto.",
+      "type": "object",
+      "properties": {
+        "who_we_are": {
+          "type": "string",
+          "description": "Overview of who Nivanto is and its origin.",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "vision": {
+          "type": "string",
+          "description": "Nivanto long-term vision statement.",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "wings_summary": {
+          "type": "string",
+          "description": "Summary of the Nivanto ecosystem wings.",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when content was last updated."
+        }
+      },
+      "required": ["who_we_are", "vision", "wings_summary"]
+    },
+    "Service": {
+      "title": "Service",
+      "description": "A Nivanto service offering belonging to a specific wing.",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "price": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 60
+        },
+        "currency": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 8
+        },
+        "features": {
+          "type": "array",
+          "description": "Up to 12 service feature highlights."
+        },
+        "wing": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "featured": {
+          "type": "boolean"
+        },
+        "order": {
+          "type": "number"
+        },
+        "active": {
+          "type": "boolean"
+        }
+      },
+      "required": ["title", "description", "price", "currency", "features", "wing", "featured", "order", "active"]
+    },
+    "PortfolioItem": {
+      "title": "PortfolioItem",
+      "description": "Client portfolio showcase item with live URL and fallback thumbnail.",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "image_url": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "live_url": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "category": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "featured": {
+          "type": "boolean"
+        },
+        "order": {
+          "type": "number"
+        },
+        "active": {
+          "type": "boolean"
+        }
+      },
+      "required": ["title", "description", "image_url", "live_url", "category", "featured", "order", "active"]
+    },
+    "TemplateItem": {
+      "title": "TemplateItem",
+      "description": "Readymade website template available for purchase via WhatsApp.",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "image_url": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "live_url": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "price": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 60
+        },
+        "currency": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 8
+        },
+        "whatsapp_number": {
+          "type": "string",
+          "minLength": 6,
+          "maxLength": 24,
+          "pattern": "^[0-9+\\-\\s]+$"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "order": {
+          "type": "number"
+        }
+      },
+      "required": ["title", "description", "image_url", "live_url", "price", "currency", "whatsapp_number", "active", "order"]
+    },
+    "Inquiry": {
+      "title": "Inquiry",
+      "description": "Customer contact form submission stored for admin review.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "business_name": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 160
+        },
+        "phone": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 40
+        },
+        "service": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "read": {
+          "type": "boolean"
+        }
+      },
+      "required": ["name", "business_name", "phone", "service", "message", "timestamp", "read"]
+    }
+  },
+  "firestore": {
+    "/content/home": {
+      "schema": { "$ref": "#/entities/HomeContent" },
+      "description": "Homepage copy document."
+    },
+    "/content/about": {
+      "schema": { "$ref": "#/entities/AboutContent" },
+      "description": "About page copy document."
+    },
+    "/services/{serviceId}": {
+      "schema": { "$ref": "#/entities/Service" },
+      "description": "Nivanto service offerings."
+    },
+    "/portfolio/{portfolioId}": {
+      "schema": { "$ref": "#/entities/PortfolioItem" },
+      "description": "Portfolio showcase projects."
+    },
+    "/templates/{templateId}": {
+      "schema": { "$ref": "#/entities/TemplateItem" },
+      "description": "Readymade website templates for sale."
+    },
+    "/inquiries/{inquiryId}": {
+      "schema": { "$ref": "#/entities/Inquiry" },
+      "description": "Customer contact form submissions."
+    }
+  }
+}

@@ -1,0 +1,158 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // ── Global Primitives ──
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn();
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // ── Entity Validators ──
+    function isValidHomeContent(data) {
+      return data.keys().hasAll(['hero_headline', 'hero_subtext', 'intro_paragraph', 'cta_text'])
+        && data.keys().hasOnly(['hero_headline', 'hero_subtext', 'intro_paragraph', 'cta_text', 'updated_at'])
+        && data.hero_headline is string && data.hero_headline.size() >= 1 && data.hero_headline.size() <= 160
+        && data.hero_subtext is string && data.hero_subtext.size() >= 1 && data.hero_subtext.size() <= 320
+        && data.intro_paragraph is string && data.intro_paragraph.size() >= 1 && data.intro_paragraph.size() <= 800
+        && data.cta_text is string && data.cta_text.size() >= 1 && data.cta_text.size() <= 200
+        && (!data.keys().hasAny(['updated_at']) || data.updated_at is timestamp);
+    }
+
+    function isValidAboutContent(data) {
+      return data.keys().hasAll(['who_we_are', 'vision', 'wings_summary'])
+        && data.keys().hasOnly(['who_we_are', 'vision', 'wings_summary', 'updated_at'])
+        && data.who_we_are is string && data.who_we_are.size() >= 1 && data.who_we_are.size() <= 2000
+        && data.vision is string && data.vision.size() >= 1 && data.vision.size() <= 2000
+        && data.wings_summary is string && data.wings_summary.size() >= 1 && data.wings_summary.size() <= 2000
+        && (!data.keys().hasAny(['updated_at']) || data.updated_at is timestamp);
+    }
+
+    function isValidService(data) {
+      return data.keys().hasAll(['title', 'description', 'price', 'currency', 'features', 'wing', 'featured', 'order', 'active'])
+        && data.keys().hasOnly(['title', 'description', 'price', 'currency', 'features', 'wing', 'featured', 'order', 'active'])
+        && data.title is string && data.title.size() >= 1 && data.title.size() <= 120
+        && data.description is string && data.description.size() >= 1 && data.description.size() <= 1000
+        && data.price is string && data.price.size() >= 1 && data.price.size() <= 60
+        && data.currency is string && data.currency.size() >= 1 && data.currency.size() <= 8
+        && data.features is list && data.features.size() <= 12
+        && (data.features.size() == 0 || (data.features[0] is string && data.features[0].size() <= 200))
+        && data.wing is string && data.wing.size() >= 1 && data.wing.size() <= 80
+        && data.featured is bool
+        && data.order is number
+        && data.active is bool;
+    }
+
+    function isValidPortfolio(data) {
+      return data.keys().hasAll(['title', 'description', 'image_url', 'live_url', 'category', 'featured', 'order', 'active'])
+        && data.keys().hasOnly(['title', 'description', 'image_url', 'live_url', 'category', 'featured', 'order', 'active'])
+        && data.title is string && data.title.size() >= 1 && data.title.size() <= 120
+        && data.description is string && data.description.size() >= 1 && data.description.size() <= 1000
+        && data.image_url is string && data.image_url.size() >= 1 && data.image_url.size() <= 1000
+        && data.live_url is string && data.live_url.size() >= 1 && data.live_url.size() <= 1000
+        && data.category is string && data.category.size() >= 1 && data.category.size() <= 80
+        && data.featured is bool
+        && data.order is number
+        && data.active is bool;
+    }
+
+    function isValidTemplate(data) {
+      return data.keys().hasAll(['title', 'description', 'image_url', 'live_url', 'price', 'currency', 'whatsapp_number', 'active', 'order'])
+        && data.keys().hasOnly(['title', 'description', 'image_url', 'live_url', 'price', 'currency', 'whatsapp_number', 'active', 'order'])
+        && data.title is string && data.title.size() >= 1 && data.title.size() <= 120
+        && data.description is string && data.description.size() >= 1 && data.description.size() <= 1000
+        && data.image_url is string && data.image_url.size() >= 1 && data.image_url.size() <= 1000
+        && data.live_url is string && data.live_url.size() >= 1 && data.live_url.size() <= 1000
+        && data.price is string && data.price.size() >= 1 && data.price.size() <= 60
+        && data.currency is string && data.currency.size() >= 1 && data.currency.size() <= 8
+        && data.whatsapp_number is string && data.whatsapp_number.size() >= 6 && data.whatsapp_number.size() <= 24
+        && data.active is bool
+        && data.order is number;
+    }
+
+    function isValidInquiry(data) {
+      return data.keys().hasAll(['name', 'business_name', 'phone', 'service', 'message', 'timestamp', 'read'])
+        && data.keys().hasOnly(['name', 'business_name', 'phone', 'service', 'message', 'timestamp', 'read'])
+        && data.name is string && data.name.size() >= 1 && data.name.size() <= 120
+        && data.business_name is string && data.business_name.size() <= 160
+        && data.phone is string && data.phone.size() >= 5 && data.phone.size() <= 40
+        && data['service'] is string && data['service'].size() >= 1 && data['service'].size() <= 120
+        && data.message is string && data.message.size() >= 1 && data.message.size() <= 2000
+        && data['timestamp'] is timestamp
+        && data.read is bool;
+    }
+
+    // ── Content Collection ──
+    match /content/{docId} {
+      allow get: if isValidId(docId);
+      allow list: if true;
+      allow create, update: if isAdmin() && isValidId(docId) && (
+        (docId == 'home' && isValidHomeContent(incoming())) ||
+        (docId == 'about' && isValidAboutContent(incoming()))
+      );
+      allow delete: if false;
+    }
+
+    // ── Services Collection ──
+    match /services/{serviceId} {
+      allow get: if isValidId(serviceId) && (existing().active == true || isAdmin());
+      allow list: if existing().active == true || isAdmin();
+      allow create: if isAdmin() && isValidId(serviceId) && isValidService(incoming());
+      allow update: if isAdmin() && isValidId(serviceId) && isValidService(incoming())
+        && incoming().diff(existing()).affectedKeys().hasOnly(['title', 'description', 'price', 'currency', 'features', 'wing', 'featured', 'order', 'active']);
+      allow delete: if isAdmin() && isValidId(serviceId);
+    }
+
+    // ── Portfolio Collection ──
+    match /portfolio/{portfolioId} {
+      allow get: if isValidId(portfolioId) && (existing().active == true || isAdmin());
+      allow list: if existing().active == true || isAdmin();
+      allow create: if isAdmin() && isValidId(portfolioId) && isValidPortfolio(incoming());
+      allow update: if isAdmin() && isValidId(portfolioId) && isValidPortfolio(incoming())
+        && incoming().diff(existing()).affectedKeys().hasOnly(['title', 'description', 'image_url', 'live_url', 'category', 'featured', 'order', 'active']);
+      allow delete: if isAdmin() && isValidId(portfolioId);
+    }
+
+    // ── Templates Collection ──
+    match /templates/{templateId} {
+      allow get: if isValidId(templateId) && (existing().active == true || isAdmin());
+      allow list: if existing().active == true || isAdmin();
+      allow create: if isAdmin() && isValidId(templateId) && isValidTemplate(incoming());
+      allow update: if isAdmin() && isValidId(templateId) && isValidTemplate(incoming())
+        && incoming().diff(existing()).affectedKeys().hasOnly(['title', 'description', 'image_url', 'live_url', 'price', 'currency', 'whatsapp_number', 'active', 'order']);
+      allow delete: if isAdmin() && isValidId(templateId);
+    }
+
+    // ── Inquiries Collection ──
+    match /inquiries/{inquiryId} {
+      allow get, list: if isAdmin();
+      allow create: if isValidId(inquiryId) && isValidInquiry(incoming())
+        && incoming().read == false
+        && incoming()['timestamp'] == request.time;
+      allow update: if isAdmin() && isValidId(inquiryId) && isValidInquiry(incoming())
+        && incoming().diff(existing()).affectedKeys().hasOnly(['read'])
+        && incoming()['timestamp'] == existing()['timestamp'];
+      allow delete: if isAdmin() && isValidId(inquiryId);
+    }
+  }
+}

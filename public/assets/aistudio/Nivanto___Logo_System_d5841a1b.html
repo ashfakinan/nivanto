@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nivanto — Logo System</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500&display=swap');
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: #EDEAE4;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  padding: 40px 20px 60px;
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.page-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: #6B7280;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* Cards */
+.card {
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 40px;
+  position: relative;
+}
+.card-white  { background: #ffffff; }
+.card-dark   { background: #1C2440; }
+.card-warm   { background: #F8F6F2; border: 1px solid #E5E1D8; }
+
+.c-label {
+  position: absolute;
+  top: 18px; left: 22px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.cl-muted { color: #9CA3AF; }
+.cl-dark  { color: rgba(255,255,255,0.28); }
+
+/* Logo */
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wordmark {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  letter-spacing: 7px;
+  line-height: 1;
+  margin-top: 10px;
+  padding-left: 7px; /* optical compensation */
+}
+.wm-blue  { color: #2B5FAA; font-size: 50px; }
+.wm-white { color: #ffffff; font-size: 42px; letter-spacing: 6px; padding-left: 6px; }
+
+/* Two column */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Symbol card */
+.sym-card {
+  border-radius: 22px;
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.sym-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  align-self: flex-start;
+}
+.sl-muted { color: #9CA3AF; }
+.sl-dark  { color: rgba(255,255,255,0.28); }
+
+.sym-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 540px) {
+  .two-col { grid-template-columns: 1fr; }
+  .wm-blue { font-size: 38px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="page-label">Nivanto · Logo System</div>
+
+  <!-- PRIMARY -->
+  <div class="card card-white">
+    <span class="c-label cl-muted">Primary</span>
+    <div class="logo">
+      <svg width="164" viewBox="0 0 200 136" fill="none">
+        <!-- Left arc half -->
+        <path d="M 8,124 A 92,92 0 0,1 76,33"
+              stroke="#2B5FAA" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+        <!-- Right arc half -->
+        <path d="M 124,33 A 92,92 0 0,1 192,124"
+              stroke="#2B5FAA" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+        <!-- Dot at peak -->
+        <circle cx="100" cy="27" r="13.5" fill="#2B5FAA"/>
+      </svg>
+      <div class="wordmark wm-blue">NIVANTO</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+
+    <!-- DARK / REVERSED -->
+    <div class="card card-dark" style="padding: 60px 32px;">
+      <span class="c-label cl-dark">Reversed</span>
+      <div class="logo">
+        <svg width="134" viewBox="0 0 200 136" fill="none">
+          <path d="M 8,124 A 92,92 0 0,1 76,33"
+                stroke="#ffffff" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+          <path d="M 124,33 A 92,92 0 0,1 192,124"
+                stroke="#ffffff" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+          <circle cx="100" cy="27" r="13.5" fill="#ffffff"/>
+        </svg>
+        <div class="wordmark wm-white">NIVANTO</div>
+      </div>
+    </div>
+
+    <!-- SYMBOL ONLY -->
+    <div class="sym-card card-white">
+      <span class="sym-label sl-muted">Symbol Variations</span>
+      <div class="sym-row">
+
+        <!-- Blue large -->
+        <svg width="66" viewBox="0 0 200 136" fill="none">
+          <path d="M 8,124 A 92,92 0 0,1 76,33"
+                stroke="#2B5FAA" stroke-width="9" stroke-linecap="round" fill="none"/>
+          <path d="M 124,33 A 92,92 0 0,1 192,124"
+                stroke="#2B5FAA" stroke-width="9" stroke-linecap="round" fill="none"/>
+          <circle cx="100" cy="27" r="14" fill="#2B5FAA"/>
+        </svg>
+
+        <!-- Amber medium -->
+        <svg width="46" viewBox="0 0 200 136" fill="none">
+          <path d="M 8,124 A 92,92 0 0,1 76,33"
+                stroke="#E8900A" stroke-width="11" stroke-linecap="round" fill="none"/>
+          <path d="M 124,33 A 92,92 0 0,1 192,124"
+                stroke="#E8900A" stroke-width="11" stroke-linecap="round" fill="none"/>
+          <circle cx="100" cy="27" r="14" fill="#E8900A"/>
+        </svg>
+
+        <!-- Small -->
+        <svg width="28" viewBox="0 0 200 136" fill="none">
+          <path d="M 8,124 A 92,92 0 0,1 76,33"
+                stroke="#2B5FAA" stroke-width="14" stroke-linecap="round" fill="none"/>
+          <path d="M 124,33 A 92,92 0 0,1 192,124"
+                stroke="#2B5FAA" stroke-width="14" stroke-linecap="round" fill="none"/>
+          <circle cx="100" cy="27" r="14" fill="#2B5FAA"/>
+        </svg>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ON BRAND BG -->
+  <div class="card card-warm" style="padding: 56px 40px;">
+    <span class="c-label cl-muted">On Brand Background</span>
+    <div class="logo">
+      <svg width="130" viewBox="0 0 200 136" fill="none">
+        <path d="M 8,124 A 92,92 0 0,1 76,33"
+              stroke="#2B5FAA" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+        <path d="M 124,33 A 92,92 0 0,1 192,124"
+              stroke="#2B5FAA" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+        <circle cx="100" cy="27" r="13.5" fill="#2B5FAA"/>
+      </svg>
+      <div class="wordmark wm-blue" style="font-size:42px;">NIVANTO</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

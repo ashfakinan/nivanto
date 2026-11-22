@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nivanto — Brand Asset 05 · Favicon + OG Image</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap');
+
+:root {
+  --primary: #2B5FAA;
+  --amber:   #E8900A;
+  --charcoal:#1C2440;
+  --muted:   #6B7280;
+  --border:  #E5E1D8;
+  --page-bg: #EDEAE4;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--page-bg);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 44px;
+  padding: 56px 20px;
+}
+
+.page-label {
+  font-size: 10px; font-weight: 600; color: var(--muted);
+  letter-spacing: 0.16em; text-transform: uppercase;
+}
+
+.sec-label {
+  font-size: 10px; font-weight: 600; color: var(--muted);
+  letter-spacing: 0.14em; text-transform: uppercase;
+  align-self: flex-start; max-width: 760px; width: 100%;
+}
+
+.size-label {
+  font-size: 11px; font-weight: 500; color: var(--muted); text-align: center; line-height: 1.5;
+}
+
+/* ── FAVICON SECTION ── */
+.favicon-row {
+  display: flex;
+  gap: 36px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 760px;
+  width: 100%;
+}
+
+.fav-item {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+
+/* Favicon icon — blue square with symbol */
+.fav-icon {
+  background: var(--primary);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.fav-icon.r4  { border-radius: 4px; }
+.fav-icon.r8  { border-radius: 8px; }
+.fav-icon.r18 { border-radius: 18px; } /* Apple touch icon */
+.fav-icon.r50 { border-radius: 50%; } /* Circle variant */
+
+/* Browser tab mock */
+.tab-mock {
+  background: #E8EAED;
+  border-radius: 8px 8px 0 0;
+  padding: 7px 14px 7px 10px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  color: #5F6368;
+  font-family: Arial, sans-serif;
+  border: 1px solid #DADCE0;
+  border-bottom: none;
+  min-width: 160px;
+}
+
+.tab-close {
+  margin-left: auto;
+  color: #9AA0A6;
+  font-size: 13px;
+  line-height: 1;
+}
+
+/* ── OG IMAGE ── */
+.og-image {
+  width: min(760px, 100%);
+  aspect-ratio: 1200 / 630;
+  background: var(--charcoal);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 52px rgba(0,0,0,0.26);
+}
+
+.og-image .echo {
+  position: absolute; pointer-events: none;
+}
+
+.og-image .accent-top {
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(to right, #E8900A 0%, #E8900A 55%, transparent 100%);
+}
+
+.og-image .center {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+  white-space: nowrap;
+}
+
+.og-image .lockup {
+  display: flex; align-items: center; gap: 20px;
+}
+
+.og-image .wordmark {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(32px, 6.5vw, 58px);
+  color: white; letter-spacing: 7px; line-height: 1; padding-left: 7px;
+}
+
+.og-image .tagline {
+  font-family: 'Bricolage Grotesque', sans-serif; font-weight: 400;
+  font-size: clamp(12px, 2vw, 18px);
+  color: #E8900A; letter-spacing: 0.08em;
+}
+
+.og-image .domain {
+  font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500;
+  font-size: clamp(10px, 1.4vw, 13px);
+  color: rgba(255,255,255,0.28); letter-spacing: 0.12em;
+  position: absolute; bottom: clamp(12px,2.5%,20px); right: clamp(16px,2.5%,28px);
+}
+
+/* ── SHARE CARD MOCKS ── */
+.share-row {
+  display: flex; gap: 24px; flex-wrap: wrap; justify-content: center;
+  max-width: 760px; width: 100%;
+}
+
+/* Facebook share card */
+.fb-share {
+  background: white;
+  border: 1px solid #DADDE1;
+  border-radius: 2px;
+  overflow: hidden;
+  width: 320px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+.fb-share-img {
+  width: 100%; aspect-ratio: 1200/630;
+  background: var(--charcoal);
+  position: relative; overflow: hidden;
+}
+
+.fb-share-meta {
+  padding: 10px 12px;
+  background: #F2F3F5;
+  border-top: 1px solid #DADDE1;
+}
+
+.fb-share-domain {
+  font-size: 11px; color: #8A8D91;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  margin-bottom: 3px;
+}
+
+.fb-share-title {
+  font-size: 14px; font-weight: 600; color: #1C1E21;
+  font-family: Arial, sans-serif; line-height: 1.3; margin-bottom: 3px;
+}
+
+.fb-share-desc {
+  font-size: 12px; color: #8A8D91;
+  font-family: Arial, sans-serif; line-height: 1.4;
+}
+
+/* WhatsApp preview */
+.wa-share {
+  background: #DCF8C6;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 260px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.12);
+  flex-shrink: 0;
+}
+
+.wa-share-img {
+  width: 100%; aspect-ratio: 1200/630;
+  background: var(--charcoal);
+  position: relative; overflow: hidden;
+}
+
+.wa-share-info {
+  padding: 8px 10px 10px;
+  background: rgba(0,0,0,0.04);
+}
+
+.wa-share-title {
+  font-size: 13px; font-weight: 600; color: #1a1a1a;
+  font-family: Arial, sans-serif; margin-bottom: 2px;
+}
+
+.wa-share-url {
+  font-size: 11px; color: #075E54;
+  font-family: Arial, sans-serif;
+}
+
+/* Shared mini OG (reused inside mocks) */
+.mini-og {
+  position: absolute; inset: 0;
+  background: var(--charcoal);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 6px;
+  overflow: hidden;
+}
+
+/* ── SVG CODE BLOCK ── */
+.code-wrap { max-width: 760px; width: 100%; }
+
+.code-header {
+  background: #2d3748; border-radius: 12px 12px 0 0;
+  padding: 10px 18px; display: flex; justify-content: space-between; align-items: center;
+}
+.code-lang { font-size:11px; font-weight:600; color:rgba(255,255,255,0.4); letter-spacing:0.1em; text-transform:uppercase; }
+.copy-btn {
+  font-family:'Bricolage Grotesque',sans-serif; font-size:12px; font-weight:600;
+  color:rgba(255,255,255,0.7); background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.14); border-radius:6px; padding:5px 14px;
+  cursor:pointer; transition:background 0.15s;
+}
+.copy-btn:hover { background:rgba(255,255,255,0.14); }
+.copy-btn.copied { color:#34D399; border-color:#34D399; }
+
+pre {
+  background: #1a202c; border-radius: 0 0 12px 12px;
+  padding: 20px; font-family: 'Courier New', Courier, monospace;
+  font-size: 11.5px; color: #CBD5E0; overflow-x: auto;
+  line-height: 1.65; white-space: pre;
+}
+.kw { color: #90CDF4; } .at { color: #68D391; } .vl { color: #FBD38D; } .cm { color: #718096; }
+
+/* ── SPEC ── */
+.spec {
+  background: white; border: 1px solid var(--border); border-radius: 18px;
+  padding: 22px 32px; display: flex; gap: 32px; flex-wrap: wrap;
+  justify-content: center; max-width: 760px; width: 100%;
+}
+.spec-item { display:flex; flex-direction:column; gap:5px; }
+.spec-key { font-size:10px; font-weight:600; color:var(--muted); letter-spacing:0.12em; text-transform:uppercase; }
+.spec-val { font-size:13px; font-weight:600; color:var(--charcoal); }
+
+@media (max-width: 600px) {
+  .fb-share { width: 100%; max-width: 320px; }
+  .wa-share { width: 100%; max-width: 260px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-label">Nivanto · Brand Asset 05 · Favicon + OG Image</div>
+
+<!-- ══ FAVICON ══ -->
+<div class="sec-label">Favicon — Multi-size Preview</div>
+
+<div class="favicon-row">
+
+  <!-- Large clear preview -->
+  <div class="fav-item">
+    <div class="fav-icon r8" style="width:96px;height:96px;">
+      <svg width="58" viewBox="0 0 200 136" fill="none">
+        <path d="M 8,124 A 92,92 0 0,1 76,33" stroke="white" stroke-width="8" stroke-linecap="round" fill="none"/>
+        <path d="M 124,33 A 92,92 0 0,1 192,124" stroke="white" stroke-width="8" stroke-linecap="round" fill="none"/>
+        <circle cx="100" cy="27" r="14" fill="white"/>
+      </svg>
+    </div>
+    <div class="size-label">96 × 96</div>
+  </div>
+
+  <!-- 32px -->
+  <div class="fav-item">
+    <div class="fav-icon r4" style="width:48px;height:48px;">
+      <svg width="28" viewBox="0 0 200 136" fill="none">
+        <path d="M 8,124 A 92,92 0 0,1 76,33" stroke="white" stroke-width="11" stroke-linecap="round" fill="none"/>
+        <path d="M 124,33 A 92,92 0 0,1 192,124" stroke="white" stroke-width="11" stroke-linecap="round" fill="none"/>
+        <circle cx="100" cy="27" r="16" fill="white"/>
+      </svg>
+    </div>
+    <div class="size-label">32 × 32</div>
+  </div>
+
+  <!-- 16px -->
+  <div class="fav-item">
+    <div class="fav-icon r4" style="width:28px;height:28px;">
+      <svg width="17" viewBox="0 0 200 136" fill="none">
+        <path d="M 8,124 A 92,92 0 0,1 76,33" stroke="white" stroke-width="14" stroke-linecap="round" fill="none"/>
+        <path d="M 124,33 A 92,92 0 0,1 192,124" stroke="white" stroke-width="14" stroke-linecap="round" fill="none"/>
+        <circle cx="100" cy="27" r="18" fill="white"/>
+      </svg>
+    </div>
+    <div class="size-label">16 × 16</div>
+  </div>
+
+  <!-- Apple touch icon -->
+  <div class="fav-item">
+    <div class="fav-icon r18" style="width:72px;height:72px;">
+      <svg width="44" viewBox="0 0 200 136" fill="none">
+        <path d="M 8,124 A 92,92 0 0,1 76,33" stroke="white" stroke-width="9" stroke-linecap="round" fill="none"/>
+        <path d="M 124,33 A 92,92 0 0,1 192,124" stroke="white" stroke-width="9" stroke-linecap="round" fill="none"/>
+        <circle cx="100" cy="27" r="15" fill="white"/>
+      </svg>
+    </div>
+    <div class="size-label">Apple Touch<br>180 × 180</div>
+  </div>
+
+  <!-- Browser tab mock -->
+  <div class="fav-item" style="align-self:flex-end;">
+    <div class="tab-mock">
+      <div class="fav-icon r4" style="width:16px;height:16px;flex-shrink:0;">
+        <svg width="10" viewBox="0 0 200 136" fill="none">
+          <path d="M 8,124 A 92,92 0 0,1 76,33" stroke="white" stroke-width="16" stroke-linecap="round" fill="none"/>
+          <path d="M 124,33 A 92,92 0 0,1 192,124" stroke="white" stroke-width="16" stroke-linecap="round" fill="none"/>
+          <circle cx="100" cy="27" r="20" fill="white"/>
+        </svg>
+      </div>
+      <span>Nivanto</span>
+      <span class="tab-close">×</span>
+    </div>
+    <div class="size-label">Browser tab</div>
+  </div>
+
+</div>
+
+<!-- SVG FAVICON CODE -->
+<div class="sec-label" style="margin-top:4px;">SVG Favicon Code — paste in &lt;head&gt;</div>
+<div class="code-wrap">
+  <div class="code-header">
+    <span class="code-lang">SVG Favicon · HTML</span>
+    <button class="copy-btn" id="favBtn" onclick="copyFav()">Copy</button>
+  </div>
+  <pre><span class="cm">&lt;!-- Add these to your &lt;head&gt; --&gt;</span>
+<span class="kw">&lt;link</span> <span class="at">rel</span>=<span class="vl">"icon"</span> <span class="at">type</span>=<span class="vl">"image/svg+xml"</span> <span class="at">href</span>=<span class="vl">"/favicon.svg"</span><span class="kw">/&gt;</span>
+<span class="kw">&lt;link</span> <span class="at">rel</span>=<span class="vl">"apple-touch-icon"</span> <span class="at">sizes</span>=<span class="vl">"180x180"</span> <span class="at">href</span>=<span class="vl">"/apple-touch-icon.png"</span><span class="kw">/&gt;</span>
+
+<span class="cm">&lt;!-- favicon.svg content --&gt;</span>
+<span class="kw">&lt;svg</span> <span class="at">xmlns</span>=<span class="vl">"http://www.w3.org/2000/svg"</span>
+     <span class="at">viewBox</span>=<span class="vl">"0 0 32 32"</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;rect</span> <span class="at">width</span>=<span class="vl">"32"</span> <span class="at">height</span>=<span class="vl">"32"</span> <span class="at">rx</span>=<span class="vl">"4"</span> <span class="at">fill</span>=<span class="vl">"#2B5FAA"</span><span class="kw">/&gt;</span>
+  <span class="kw">&lt;svg</span> <span class="at">x</span>=<span class="vl">"2"</span> <span class="at">y</span>=<span class="vl">"2"</span> <span class="at">width</span>=<span class="vl">"28"</span> <span class="at">viewBox</span>=<span class="vl">"0 0 200 136"</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;path</span> <span class="at">d</span>=<span class="vl">"M8,124 A92,92 0 0,1 76,33"</span>
+          <span class="at">stroke</span>=<span class="vl">"white"</span> <span class="at">stroke-width</span>=<span class="vl">"14"</span> <span class="at">stroke-linecap</span>=<span class="vl">"round"</span> <span class="at">fill</span>=<span class="vl">"none"</span><span class="kw">/&gt;</span>
+    <span class="kw">&lt;path</span> <span class="at">d</span>=<span class="vl">"M124,33 A92,92 0 0,1 192,124"</span>
+          <span class="at">stroke</span>=<span class="vl">"white"</span> <span class="at">stroke-width</span>=<span class="vl">"14"</span> <span class="at">stroke-linecap</span>=<span class="vl">"round"</span> <span class="at">fill</span>=<span class="vl">"none"</span><span class="kw">/&gt;</span>
+    <span class="kw">&lt;circle</span> <span class="at">cx</span>=<span class="vl">"100"</span> <span class="at">cy</span>=<span class="vl">"27"</span> <span class="at">r</span>=<span class="vl">"18"</span> <span class="at">fill</span>=<span class="vl">"white"</span><span class="kw">/&gt;</span>
+  <span class="kw">&lt;/svg&gt;</span>
+<span class="kw">&lt;/svg&gt;</span></pre>
+</div>
+
+<!-- ══ OG IMAGE ══ -->
+<div class="sec-label" style="margin-top:4px;">OG Image — 1200 × 630</div>
+
+<div style="width:min(760px,100%);display:flex;flex-direction:column;align-items:center;gap:14px;">
+  <div class="og-image">
+
+    <!-- Arc echoes -->
+    <svg class="echo" style="left:-80px;top:-50px;opacity:0.05;" width="400" viewBox="0 0 200 136" fill="none">
+      <path d="M 8,124 A 92,92 0 0,1 76,33" stroke="white" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+      <path d="M 124,33 A 92,92 0 0,1 192,124" stroke="white" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+      <circle cx="100" cy="27" r="13.5" fill="white"/>
+    </svg>
+    <svg class="echo" style="right:-100px;bottom:-60px;opacity:0.04;" width="480" viewBox="0 0 200 136" fill="none">
+      <path d="M 8,124 A 92,92 0 0,1 76,33" stroke="white" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+      <path d="M 124,33 A 92,92 0 0,1 192,124" stroke="white" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+      <circle cx="100" cy="27" r="13.5" fill="white"/>
+    </svg>
+
+    <div class="accent-top"></div>
+
+    <!-- Center lockup -->
+    <div class="center">
+      <div class="lockup">
+        <svg width="clamp(36px,6vw,56px)" viewBox="0 0 200 136" fill="none">
+          <path d="M 8,124 A 92,92 0 0,1 76,33" stroke="white" stroke-width="8" stroke-linecap="round" fill="none"/>
+          <path d="M 124,33 A 92,92 0 0,1 192,124" stroke="white" stroke-width="8" stroke-linecap="round" fill="none"/>
+          <circle cx="100" cy="27" r="14" fill="white"/>
+        </svg>
+        <div class="wordmark">NIVANTO</div>
+      </div>
+      <div class="tagline">Your dream, fully powered.</div>
+    </div>
+
+    <div class="domain">nivanto.com</div>
+
+  </div>
+  <div class="size-label">OG Image master · Export at 1200 × 630 px</div>
+</div>
+
+<!-- ── SOCIAL SHARE MOCKS ── -->
+<div class="sec-label" style="margin-top:4px;">How it looks when shared</div>
+
+<div class="share-row">
+
+  <!-- Facebook share card -->
+  <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+    <div class="fb-share">
+      <div class="fb-share-img">
+        <!-- Mini OG reproduction -->
+        <div class="mini-og">
+          <svg style="position:absolute;left:-20px;top:-12px;opacity:0.05;" width="180" viewBox="0 0 200 136" fill="none">
+            <path d="M 8,124 A 92,92 0 0,1 76,33" stroke="white" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+            <path d="M 124,33 A 92,92 0 0,1 192,124" stroke="white" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+            <circle cx="100" cy="27" r="13.5" fill="white"/>
+          </svg>
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,#E8900A,#E8900A 55%,transparent);"></div>
+          <div style="display:flex;align-items:center;gap:8px;position:relative;">
+            <svg width="22" viewBox="0 0 200 136" fill="none">
+              <path d="M 8,124 A 92,92 0 0,1 76,33" stroke="white" stroke-width="8.5" stroke-linecap="round" fill="none"/>
+              <path d="M 124,33 A 92,92 0 0,1 192,124" stroke="white" stroke-width="8.5" stroke-linecap="round" fill="none"/>
+              <circle cx="100" cy="27" r="14" fill="white"/>
+            </svg>
+            <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:19px;color:white;letter-spacing:5px;">NIVANTO</span>
+          </div>
+          <div style="font-size:10px;color:#E8900A;letter-spacing:0.08em;position:relative;font-family:'Bricolage Grotesque',sans-serif;">Your dream, fully powered.</div>
+          <div style="position:absolute;bottom:5px;right:8px;font-size:9px;color:rgba(255,255,255,0.22);font-family:Arial,sans-serif;letter-spacing:0.1em;">NIVANTO.COM</div>
+        </div>
+      </div>
+      <div class="fb-share-meta">
+        <div class="fb-share-domain">NIVANTO.COM</div>
+        <div class="fb-share-title">Nivanto — Your dream, fully powered.</div>
+        <div class="fb-share-desc">AI-powered business support ecosystem — from brand to web to growth.</div>
+      </div>
+    </div>
+    <div class="size-label">Facebook / LinkedIn share card</div>
+  </div>
+
+  <!-- WhatsApp preview -->
+  <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+    <div class="wa-share">
+      <div class="wa-share-img">
+        <div class="mini-og">
+          <svg style="position:absolute;left:-20px;top:-12px;opacity:0.05;" width="150" viewBox="0 0 200 136" fill="none">
+            <path d="M 8,124 A 92,92 0 0,1 76,33" stroke="white" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+            <path d="M 124,33 A 92,92 0 0,1 192,124" stroke="white" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+            <circle cx="100" cy="27" r="13.5" fill="white"/>
+          </svg>
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,#E8900A,#E8900A 55%,transparent);"></div>
+          <div style="display:flex;align-items:center;gap:7px;position:relative;">
+            <svg width="18" viewBox="0 0 200 136" fill="none">
+              <path d="M 8,124 A 92,92 0 0,1 76,33" stroke="white" stroke-width="9" stroke-linecap="round" fill="none"/>
+              <path d="M 124,33 A 92,92 0 0,1 192,124" stroke="white" stroke-width="9" stroke-linecap="round" fill="none"/>
+              <circle cx="100" cy="27" r="14" fill="white"/>
+            </svg>
+            <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:15px;color:white;letter-spacing:4px;">NIVANTO</span>
+          </div>
+          <div style="font-size:9px;color:#E8900A;letter-spacing:0.07em;position:relative;font-family:Arial,sans-serif;">Your dream, fully powered.</div>
+        </div>
+      </div>
+      <div class="wa-share-info">
+        <div class="wa-share-title">Nivanto</div>
+        <div class="wa-share-url">nivanto.com</div>
+      </div>
+    </div>
+    <div class="size-label">WhatsApp link preview</div>
+  </div>
+
+</div>
+
+<!-- OG META CODE -->
+<div class="sec-label" style="margin-top:4px;">OG Meta Tags — paste in &lt;head&gt;</div>
+<div class="code-wrap">
+  <div class="code-header">
+    <span class="code-lang">HTML · Meta Tags</span>
+    <button class="copy-btn" id="ogBtn" onclick="copyOG()">Copy</button>
+  </div>
+  <pre><span class="cm">&lt;!-- Open Graph --&gt;</span>
+<span class="kw">&lt;meta</span> <span class="at">property</span>=<span class="vl">"og:title"</span>       <span class="at">content</span>=<span class="vl">"Nivanto — Your dream, fully powered."</span><span class="kw">/&gt;</span>
+<span class="kw">&lt;meta</span> <span class="at">property</span>=<span class="vl">"og:description"</span>  <span class="at">content</span>=<span class="vl">"AI-powered business support ecosystem. Brand, web, growth — all in one place."</span><span class="kw">/&gt;</span>
+<span class="kw">&lt;meta</span> <span class="at">property</span>=<span class="vl">"og:image"</span>        <span class="at">content</span>=<span class="vl">"https://nivanto.com/og-image.png"</span><span class="kw">/&gt;</span>
+<span class="kw">&lt;meta</span> <span class="at">property</span>=<span class="vl">"og:image:width"</span>  <span class="at">content</span>=<span class="vl">"1200"</span><span class="kw">/&gt;</span>
+<span class="kw">&lt;meta</span> <span class="at">property</span>=<span class="vl">"og:image:height"</span> <span class="at">content</span>=<span class="vl">"630"</span><span class="kw">/&gt;</span>
+<span class="kw">&lt;meta</span> <span class="at">property</span>=<span class="vl">"og:type"</span>         <span class="at">content</span>=<span class="vl">"website"</span><span class="kw">/&gt;</span>
+<span class="kw">&lt;meta</span> <span class="at">property</span>=<span class="vl">"og:url"</span>          <span class="at">content</span>=<span class="vl">"https://nivanto.com"</span><span class="kw">/&gt;</span>
+
+<span class="cm">&lt;!-- Twitter / X Card --&gt;</span>
+<span class="kw">&lt;meta</span> <span class="at">name</span>=<span class="vl">"twitter:card"</span>        <span class="at">content</span>=<span class="vl">"summary_large_image"</span><span class="kw">/&gt;</span>
+<span class="kw">&lt;meta</span> <span class="at">name</span>=<span class="vl">"twitter:title"</span>       <span class="at">content</span>=<span class="vl">"Nivanto — Your dream, fully powered."</span><span class="kw">/&gt;</span>
+<span class="kw">&lt;meta</span> <span class="at">name</span>=<span class="vl">"twitter:image"</span>       <span class="at">content</span>=<span class="vl">"https://nivanto.com/og-image.png"</span><span class="kw">/&gt;</span></pre>
+</div>
+
+<!-- SPEC -->
+<div class="spec">
+  <div class="spec-item">
+    <div class="spec-key">Favicon sizes</div>
+    <div class="spec-val">16 · 32 · 96 · 180 px</div>
+  </div>
+  <div class="spec-item">
+    <div class="spec-key">Favicon format</div>
+    <div class="spec-val">SVG + PNG fallback</div>
+  </div>
+  <div class="spec-item">
+    <div class="spec-key">OG image</div>
+    <div class="spec-val">1200 × 630 px · PNG</div>
+  </div>
+  <div class="spec-item">
+    <div class="spec-key">OG background</div>
+    <div class="spec-val">#1C2440</div>
+  </div>
+  <div class="spec-item">
+    <div class="spec-key">Works on</div>
+    <div class="spec-val">FB · LinkedIn · WhatsApp · X</div>
+  </div>
+</div>
+
+<script>
+function copyFav() {
+  const code = `<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+
+<!-- favicon.svg content -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="4" fill="#2B5FAA"/>
+  <svg x="2" y="2" width="28" viewBox="0 0 200 136">
+    <path d="M8,124 A92,92 0 0,1 76,33" stroke="white" stroke-width="14" stroke-linecap="round" fill="none"/>
+    <path d="M124,33 A92,92 0 0,1 192,124" stroke="white" stroke-width="14" stroke-linecap="round" fill="none"/>
+    <circle cx="100" cy="27" r="18" fill="white"/>
+  </svg>
+</svg>`;
+  navigator.clipboard.writeText(code).then(() => {
+    const btn = document.getElementById('favBtn');
+    btn.textContent = 'Copied ✓'; btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2200);
+  });
+}
+
+function copyOG() {
+  const code = `<!-- Open Graph -->
+<meta property="og:title"       content="Nivanto — Your dream, fully powered."/>
+<meta property="og:description" content="AI-powered business support ecosystem. Brand, web, growth — all in one place."/>
+<meta property="og:image"       content="https://nivanto.com/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:type"        content="website"/>
+<meta property="og:url"         content="https://nivanto.com"/>
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card"  content="summary_large_image"/>
+<meta name="twitter:title" content="Nivanto — Your dream, fully powered."/>
+<meta name="twitter:image" content="https://nivanto.com/og-image.png"/>`;
+  navigator.clipboard.writeText(code).then(() => {
+    const btn = document.getElementById('ogBtn');
+    btn.textContent = 'Copied ✓'; btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2200);
+  });
+}
+</script>
+
+</body>
+</html>

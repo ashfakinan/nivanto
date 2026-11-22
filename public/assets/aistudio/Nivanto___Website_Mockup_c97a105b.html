@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nivanto — Mockup</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&family=Baloo+Da+2:wght@400;600;800&family=Hind+Siliguri:wght@400;500;600&display=swap');
+
+:root{
+  --b:#2B5FAA;--a:#E8900A;--bg:#F8F6F2;--d:#1C2440;
+  --m:#6B7280;--br:#E5E1D8;--w:#fff;
+  color-scheme:light;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px);}
+body{background:var(--bg);color:var(--d);font-family:'Bricolage Grotesque',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+
+/* Lang */
+[data-lang="bn"] .en{display:none;}
+[data-lang="en"] .bn{display:none;}
+.bn{font-family:'Hind Siliguri',sans-serif;}
+.bn-h{font-family:'Baloo Da 2',sans-serif;}
+
+/* Layout */
+.c{max-width:1080px;margin:0 auto;padding:0 28px;}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(28,36,64,0.97);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  padding:14px 0;
+}
+.ni{display:flex;align-items:center;justify-content:space-between;}
+.nl{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nw{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:var(--w);letter-spacing:5px;}
+.nm{display:flex;align-items:center;gap:28px;list-style:none;}
+.nm a{font-size:13px;font-weight:500;color:rgba(255,255,255,0.58);text-decoration:none;transition:color .15s;}
+.nm a:hover{color:var(--w);}
+.lt{display:flex;gap:2px;background:rgba(255,255,255,0.08);border-radius:8px;padding:3px;}
+.lb{background:none;border:none;cursor:pointer;font-size:12px;font-weight:600;padding:5px 11px;border-radius:6px;color:rgba(255,255,255,0.4);transition:all .15s;}
+.lb.on{background:var(--b);color:var(--w);}
+
+/* ── HERO ── */
+.hero{background:var(--d);padding:96px 0 86px;position:relative;overflow:hidden;}
+.harc{position:absolute;right:-40px;top:50%;transform:translateY(-50%);opacity:.055;pointer-events:none;}
+.hp{
+  font-size:12px;font-weight:600;color:var(--a);letter-spacing:.12em;
+  margin-bottom:22px;display:flex;align-items:center;gap:12px;
+}
+.hp::before{content:'';display:block;width:28px;height:1px;background:var(--a);}
+.hh{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(50px,8vw,86px);color:var(--w);
+  line-height:.95;letter-spacing:-2px;margin-bottom:26px;
+}
+.hh.bn-h{letter-spacing:0;line-height:1.1;}
+.hs{font-size:16px;color:rgba(255,255,255,0.5);max-width:460px;margin-bottom:44px;line-height:1.65;}
+.cg{display:flex;gap:12px;flex-wrap:wrap;}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:600;
+  padding:14px 26px;border-radius:12px;border:none;cursor:pointer;text-decoration:none;
+  transition:opacity .15s,transform .15s;
+}
+.btn:hover{opacity:.88;transform:translateY(-1px);}
+.ba{background:var(--a);color:var(--w);}
+.bo{background:transparent;border:1px solid rgba(255,255,255,0.22);color:var(--w);}
+.bo-dark{background:transparent;border:1px solid rgba(255,255,255,0.22);color:var(--w);}
+
+/* ── SERVICES ── */
+.sec{padding:88px 0;}
+.sh{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(30px,5vw,44px);color:var(--d);line-height:1.05;margin-bottom:10px;}
+.sh.bn-h{line-height:1.2;}
+.ss{font-size:16px;color:var(--m);margin-bottom:50px;max-width:480px;}
+
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:36px;}
+.sc{
+  background:var(--w);border:1px solid var(--br);
+  border-left:3px solid var(--b);border-radius:16px;
+  padding:30px 28px;transition:border-left-color .2s;
+}
+.sc:hover{border-left-color:var(--a);}
+.sn{font-family:'Syne',sans-serif;font-weight:800;font-size:21px;color:var(--d);margin-bottom:10px;line-height:1.15;}
+.sn.bn-h{font-size:19px;line-height:1.3;}
+.sd{font-size:14px;color:var(--m);line-height:1.65;}
+
+/* Upcoming */
+.upl{font-size:11px;font-weight:600;color:var(--m);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;}
+.ug{display:flex;flex-wrap:wrap;gap:10px;}
+.uc{background:var(--bg);border:1px solid var(--br);border-radius:10px;padding:12px 18px;display:flex;align-items:center;gap:10px;}
+.un{font-size:14px;font-weight:500;color:var(--m);}
+.ub{font-size:10px;font-weight:600;color:rgba(43,95,170,0.6);background:rgba(43,95,170,0.07);padding:2px 8px;border-radius:6px;}
+
+/* ── TRUST ── */
+.trust{background:var(--b);padding:88px 0;}
+.th{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(28px,4vw,40px);color:var(--w);margin-bottom:52px;line-height:1.1;}
+.th.bn-h{line-height:1.25;}
+.tc{display:grid;grid-template-columns:repeat(3,1fr);gap:44px;}
+.tm{width:28px;height:2px;background:var(--a);margin-bottom:16px;}
+.tt{font-size:17px;font-weight:600;color:var(--w);margin-bottom:8px;}
+.tt.bn{font-size:16px;}
+.tb{font-size:14px;color:rgba(255,255,255,0.52);line-height:1.65;}
+
+/* ── CTA ── */
+.ctasec{padding:88px 0;}
+.ctabox{
+  background:var(--d);border-radius:24px;
+  padding:60px 52px;display:flex;align-items:center;
+  justify-content:space-between;gap:40px;flex-wrap:wrap;
+  position:relative;overflow:hidden;
+}
+.carc{position:absolute;right:-60px;bottom:-40px;opacity:.055;pointer-events:none;}
+.ch{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(26px,4vw,38px);color:var(--w);line-height:1.1;margin-bottom:12px;}
+.ch.bn-h{line-height:1.25;}
+.csub{font-size:15px;color:rgba(255,255,255,0.5);max-width:400px;line-height:1.65;}
+.cbg{display:flex;flex-direction:column;gap:10px;flex-shrink:0;}
+
+/* ── FOOTER ── */
+footer{background:var(--d);border-top:1px solid rgba(255,255,255,0.07);padding:44px 0 32px;}
+.fi{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:36px;margin-bottom:36px;}
+.fw{font-family:'Syne',sans-serif;font-weight:800;font-size:16px;color:var(--w);letter-spacing:5px;margin-top:10px;margin-bottom:8px;}
+.ft{font-size:13px;color:rgba(255,255,255,0.38);}
+.fch{font-size:11px;font-weight:600;color:rgba(255,255,255,0.35);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;}
+.fl{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.fl a{font-size:13px;color:rgba(255,255,255,0.52);text-decoration:none;}
+.fl a:hover{color:var(--w);}
+.fb{border-top:1px solid rgba(255,255,255,0.07);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.fc{font-size:12px;color:rgba(255,255,255,0.3);}
+
+/* Mockup badge */
+.mb{position:fixed;bottom:20px;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:200;background:var(--a);color:var(--w);font-size:11px;font-weight:600;padding:7px 16px;border-radius:100px;letter-spacing:.05em;box-shadow:0 4px 16px rgba(232,144,10,.35);}
+
+/* Responsive */
+@media(max-width:720px){
+  .sg,.tc{grid-template-columns:1fr;}
+  .tc{gap:28px;}
+  .ctabox{padding:36px 28px;}
+  .cbg{flex-direction:row;flex-wrap:wrap;}
+  .nm{display:none;}
+  .hero{padding:68px 0 60px;}
+}
+</style>
+</head>
+<body data-lang="en">
+
+<div class="mb">Website Mockup</div>
+
+<!-- NAV -->
+<nav>
+  <div class="c ni">
+    <a href="#" class="nl">
+      <svg width="24" viewBox="0 0 200 136" fill="none"><path d="M8,124A92,92 0 0,1 76,33" stroke="white" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M124,33A92,92 0 0,1 192,124" stroke="white" stroke-width="9" stroke-linecap="round" fill="none"/><circle cx="100" cy="27" r="14" fill="white"/></svg>
+      <span class="nw">NIVANTO</span>
+    </a>
+    <ul class="nm">
+      <li><a href="#svc" class="en">Services</a><a href="#svc" class="bn">সেবাসমূহ</a></li>
+      <li><a href="#why" class="en">Why Nivanto</a><a href="#why" class="bn">কেন Nivanto</a></li>
+      <li><a href="#cta" class="en">Contact</a><a href="#cta" class="bn">যোগাযোগ</a></li>
+    </ul>
+    <div class="lt">
+      <button class="lb on" onclick="setL('en')">EN</button>
+      <button class="lb" onclick="setL('bn')">বাং</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <svg class="harc" width="520" viewBox="0 0 200 136" fill="none"><path d="M8,124A92,92 0 0,1 76,33" stroke="white" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M124,33A92,92 0 0,1 192,124" stroke="white" stroke-width="6" stroke-linecap="round" fill="none"/><circle cx="100" cy="27" r="12" fill="white"/></svg>
+  <div class="c">
+    <div class="hp">
+      <span class="en">Bangladesh's AI-powered business ecosystem</span>
+      <span class="bn">বাংলাদেশের AI-চালিত বিজনেস ইকোসিস্টেম</span>
+    </div>
+    <h1 class="hh en">Your dream,<br>fully powered.</h1>
+    <h1 class="hh bn-h bn">আপনার স্বপ্ন,<br>সম্পূর্ণ সক্ষম।</h1>
+    <p class="hs en">From brand identity to web development, social media to SaaS — Nivanto gives small businesses everything they need to grow with confidence.</p>
+    <p class="hs bn">ব্র্যান্ড পরিচয় থেকে ওয়েব ডেভেলপমেন্ট, সোশ্যাল মিডিয়া থেকে SaaS — Nivanto আপনার ব্যবসার সব প্রয়োজন মেটায়।</p>
+    <div class="cg">
+      <a href="https://wa.me/8801XXXXXXXXX" class="btn ba">
+        <svg width="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/></svg>
+        <span class="en">WhatsApp us</span><span class="bn">WhatsApp করুন</span>
+      </a>
+      <a href="#" class="btn bo"><span class="en">Fill the form</span><span class="bn">ফর্ম পূরণ করুন</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="svc">
+  <div class="c">
+    <h2 class="sh en">What we do</h2>
+    <h2 class="sh bn-h bn">আমাদের সেবা</h2>
+    <p class="ss en">Four core services, built to work together.</p>
+    <p class="ss bn">চারটি মূল সেবা — একসাথে কাজ করার জন্য তৈরি।</p>
+    <div class="sg">
+      <div class="sc">
+        <div class="sn en">Branding &amp; Design</div>
+        <div class="sn bn-h bn">ব্র্যান্ডিং ও ডিজাইন</div>
+        <p class="sd en">Logo systems, visual identity, brand guidelines, and social assets — built to last and scale with your business.</p>
+        <p class="sd bn">লোগো সিস্টেম, ভিজ্যুয়াল আইডেন্টিটি, ব্র্যান্ড গাইডলাইন — আপনার ব্যবসার সাথে টেকসইভাবে তৈরি।</p>
+      </div>
+      <div class="sc">
+        <div class="sn en">Web Development</div>
+        <div class="sn bn-h bn">ওয়েব ডেভেলপমেন্ট</div>
+        <p class="sd en">Fast, responsive websites and landing pages that look credible and convert visitors into customers.</p>
+        <p class="sd bn">দ্রুত, রেসপন্সিভ ওয়েবসাইট এবং ল্যান্ডিং পেজ যা বিশ্বাসযোগ্য দেখায় এবং ভিজিটরকে কাস্টমারে পরিণত করে।</p>
+      </div>
+      <div class="sc">
+        <div class="sn en">Social Media &amp; Marketing</div>
+        <div class="sn bn-h bn">সোশ্যাল মিডিয়া ও মার্কেটিং</div>
+        <p class="sd en">Strategy, content creation, and consistent posting — your brand stays visible, trusted, and growing.</p>
+        <p class="sd bn">কৌশল, কন্টেন্ট তৈরি এবং নিয়মিত পোস্টিং — আপনার ব্র্যান্ড সবসময় দৃশ্যমান এবং বিশ্বস্ত থাকে।</p>
+      </div>
+      <div class="sc">
+        <div class="sn en">SaaS &amp; Digital Products</div>
+        <div class="sn bn-h bn">SaaS ও ডিজিটাল প্রোডাক্ট</div>
+        <p class="sd en">Custom web apps and software products built from idea to launch, with AI-powered speed and care.</p>
+        <p class="sd bn">কাস্টম ওয়েব অ্যাপ ও সফটওয়্যার প্রোডাক্ট — আইডিয়া থেকে লঞ্চ পর্যন্ত, AI-চালিত গতিতে।</p>
+      </div>
+    </div>
+
+    <p class="upl en">Coming soon</p>
+    <p class="upl bn">শীঘ্রই আসছে</p>
+    <div class="ug">
+      <div class="uc"><span class="un en">Content Production</span><span class="un bn">কন্টেন্ট প্রোডাকশন</span><span class="ub en">Soon</span><span class="ub bn">শীঘ্রই</span></div>
+      <div class="uc"><span class="un en">Business Consulting</span><span class="un bn">বিজনেস কনসালটিং</span><span class="ub en">Soon</span><span class="ub bn">শীঘ্রই</span></div>
+      <div class="uc"><span class="un en">E-commerce Solutions</span><span class="un bn">ই-কমার্স সলিউশন</span><span class="ub en">Soon</span><span class="ub bn">শীঘ্রই</span></div>
+      <div class="uc"><span class="un en">AI Automation</span><span class="un bn">AI অটোমেশন</span><span class="ub en">Soon</span><span class="ub bn">শীঘ্রই</span></div>
+      <div class="uc"><span class="un en">Nivanto Academy</span><span class="un bn">নিভান্টো একাডেমি</span><span class="ub en">Soon</span><span class="ub bn">শীঘ্রই</span></div>
+      <div class="uc"><span class="un en">Analytics &amp; Insights</span><span class="un bn">অ্যানালিটিক্স ও ইনসাইটস</span><span class="ub en">Soon</span><span class="ub bn">শীঘ্রই</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NIVANTO -->
+<section class="trust" id="why">
+  <div class="c">
+    <h2 class="th en">Built on trust.<br>Measured by results.</h2>
+    <h2 class="th bn-h bn">বিশ্বাসের উপর নির্মিত।<br>ফলাফলে পরিমাপ।</h2>
+    <div class="tc">
+      <div>
+        <div class="tm"></div>
+        <div class="tt en">Everything in one place</div>
+        <div class="tt bn">সব একজায়গায়</div>
+        <p class="tb en">Brand, web, marketing, and software — from a single team that understands your business from the ground up.</p>
+        <p class="tb bn">ব্র্যান্ড, ওয়েব, মার্কেটিং এবং সফটওয়্যার — একটি টিম থেকে যারা আপনার ব্যবসা পুরোপুরি বোঝে।</p>
+      </div>
+      <div>
+        <div class="tm"></div>
+        <div class="tt en">Built for Bangladesh</div>
+        <div class="tt bn">বাংলাদেশের জন্য তৈরি</div>
+        <p class="tb en">We understand the local market, local customers, and what it actually takes to build a business here.</p>
+        <p class="tb bn">আমরা স্থানীয় বাজার এবং কাস্টমার বুঝি — এখানে ব্যবসা গড়তে ঠিক কী লাগে তা আমরা জানি।</p>
+      </div>
+      <div>
+        <div class="tm"></div>
+        <div class="tt en">AI-powered speed</div>
+        <div class="tt bn">AI-চালিত গতি</div>
+        <p class="tb en">Faster delivery, lower cost, higher quality — human judgment combined with AI tools that multiply our output.</p>
+        <p class="tb bn">দ্রুত ডেলিভারি, কম খরচ, উচ্চ মান — মানবিক বিচার ও AI টুলসের সমন্বয়ে।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="ctasec" id="cta">
+  <div class="c">
+    <div class="ctabox">
+      <svg class="carc" width="380" viewBox="0 0 200 136" fill="none"><path d="M8,124A92,92 0 0,1 76,33" stroke="white" stroke-width="6.5" stroke-linecap="round" fill="none"/><path d="M124,33A92,92 0 0,1 192,124" stroke="white" stroke-width="6.5" stroke-linecap="round" fill="none"/><circle cx="100" cy="27" r="12" fill="white"/></svg>
+      <div>
+        <h2 class="ch en">Ready to start?</h2>
+        <h2 class="ch bn-h bn">শুরু করতে প্রস্তুত?</h2>
+        <p class="csub en">Tell us about your business. We'll work out exactly what you need — no pressure, no jargon.</p>
+        <p class="csub bn">আপনার ব্যবসা সম্পর্কে বলুন। আমরা বলে দেব আপনার ঠিক কী দরকার — কোনো চাপ নেই।</p>
+      </div>
+      <div class="cbg">
+        <a href="https://wa.me/8801XXXXXXXXX" class="btn ba">
+          <svg width="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/></svg>
+          <span class="en">WhatsApp us</span><span class="bn">WhatsApp করুন</span>
+        </a>
+        <a href="#" class="btn bo"><span class="en">Fill the form</span><span class="bn">ফর্ম পূরণ করুন</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="c">
+    <div class="fi">
+      <div>
+        <svg width="26" viewBox="0 0 200 136" fill="none"><path d="M8,124A92,92 0 0,1 76,33" stroke="white" stroke-width="8.5" stroke-linecap="round" fill="none"/><path d="M124,33A92,92 0 0,1 192,124" stroke="white" stroke-width="8.5" stroke-linecap="round" fill="none"/><circle cx="100" cy="27" r="14" fill="white"/></svg>
+        <div class="fw">NIVANTO</div>
+        <div class="ft en">Your dream, fully powered.</div>
+        <div class="ft bn">আপনার স্বপ্ন, সম্পূর্ণ সক্ষম।</div>
+      </div>
+      <div>
+        <div class="fch en">Services</div>
+        <div class="fch bn">সেবাসমূহ</div>
+        <ul class="fl">
+          <li><a href="#" class="en">Branding &amp; Design</a><a href="#" class="bn">ব্র্যান্ডিং ও ডিজাইন</a></li>
+          <li><a href="#" class="en">Web Development</a><a href="#" class="bn">ওয়েব ডেভেলপমেন্ট</a></li>
+          <li><a href="#" class="en">Social Media</a><a href="#" class="bn">সোশ্যাল মিডিয়া</a></li>
+          <li><a href="#" class="en">SaaS Products</a><a href="#" class="bn">SaaS প্রোডাক্ট</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="fch en">Contact</div>
+        <div class="fch bn">যোগাযোগ</div>
+        <ul class="fl">
+          <li><a href="https://wa.me/8801XXXXXXXXX">WhatsApp</a></li>
+          <li><a href="#">Google Form</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fb">
+      <span class="fc en">© 2026 Nivanto. All rights reserved.</span>
+      <span class="fc bn">© ২০২৬ নিভান্টো। সর্বস্বত্ব সংরক্ষিত।</span>
+      <span class="fc en">Chattogram, Bangladesh</span>
+      <span class="fc bn">চট্টগ্রাম, বাংলাদেশ</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function setL(l){
+  document.body.dataset.lang=l;
+  document.querySelectorAll('.lb').forEach(b=>b.classList.remove('on'));
+  document.querySelector('.lb[onclick="setL(\''+l+'\')"]').classList.add('on');
+}
+</script>
+</body>
+</html>

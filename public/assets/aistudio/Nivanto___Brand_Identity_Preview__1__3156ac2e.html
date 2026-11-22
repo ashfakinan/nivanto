@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nivanto — Brand Identity Preview</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap');
+
+:root {
+  --primary: #2B5FAA;
+  --amber:   #E8900A;
+  --bg:      #F8F6F2;
+  --charcoal:#1C2440;
+  --muted:   #6B7280;
+  --border:  #E5E1D8;
+  --white:   #FFFFFF;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: #EDEAE4;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  color: var(--charcoal);
+  padding: 40px 20px 60px;
+}
+
+.board {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--charcoal);
+  border-radius: 24px;
+  padding: 56px 52px 52px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.hero-name {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(56px, 11vw, 96px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 0.88;
+  letter-spacing: -3px;
+  margin-bottom: 26px;
+}
+.hero-tagline {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--amber);
+  letter-spacing: 0.01em;
+}
+.hero::before {
+  content:'';
+  position:absolute; right:-70px; top:-70px;
+  width:340px; height:340px;
+  border-radius:50%;
+  border:72px solid rgba(43,95,170,0.22);
+  pointer-events:none;
+}
+.hero::after {
+  content:'';
+  position:absolute; right:120px; bottom:-90px;
+  width:220px; height:220px;
+  border-radius:50%;
+  background:rgba(232,144,10,0.08);
+  pointer-events:none;
+}
+
+/* ── SECTION LABEL ── */
+.sec-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+
+/* ── COLORS ── */
+.swatches {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.swatch { flex:1; min-width:100px; }
+.swatch-block {
+  height: 72px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.swatch-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 2px;
+}
+.swatch-hex {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* ── TYPOGRAPHY ── */
+.type-rows { display:flex; flex-direction:column; }
+.type-row {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.type-row:first-child { padding-top: 0; }
+.type-meta {
+  min-width: 108px;
+  font-size: 10px;
+  color: var(--muted);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.6;
+  flex-shrink: 0;
+}
+.t-h1 {
+  font-family:'Syne',sans-serif;
+  font-size: 52px; font-weight:800;
+  color:var(--charcoal); line-height:1; letter-spacing:-1.5px;
+}
+.t-h2 {
+  font-family:'Syne',sans-serif;
+  font-size: 28px; font-weight:700;
+  color:var(--charcoal); line-height:1.1;
+}
+.t-body {
+  font-size:16px; font-weight:400;
+  color:var(--charcoal); line-height:1.65;
+  max-width:420px;
+}
+.t-caption {
+  font-size:13px; font-weight:400;
+  color:var(--muted); line-height:1.5;
+}
+
+/* ── COMPONENTS ── */
+.component-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.wing-card {
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:28px;
+}
+.wing-dot {
+  width:9px; height:9px;
+  border-radius:50%;
+  background:var(--amber);
+  margin-bottom:18px;
+}
+.wing-title {
+  font-family:'Syne',sans-serif;
+  font-size:20px; font-weight:700;
+  color:var(--charcoal);
+  margin-bottom:9px;
+}
+.wing-desc {
+  font-size:14px; color:var(--muted);
+  line-height:1.65; margin-bottom:22px;
+}
+.wing-tag {
+  display:inline-block;
+  background:rgba(43,95,170,0.08);
+  color:var(--primary);
+  font-size:12px; font-weight:600;
+  padding:5px 13px; border-radius:100px;
+}
+
+.cta-card {
+  background:var(--primary);
+  border-radius:18px;
+  padding:28px;
+  display:flex; flex-direction:column;
+  justify-content:space-between;
+}
+.cta-heading {
+  font-family:'Syne',sans-serif;
+  font-size:24px; font-weight:700;
+  color:#fff; line-height:1.2;
+  margin-bottom:10px;
+}
+.cta-sub {
+  font-size:14px;
+  color:rgba(255,255,255,0.58);
+  line-height:1.65;
+  margin-bottom:26px;
+}
+.cta-btn {
+  background:var(--amber);
+  color:#fff;
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:14px; font-weight:600;
+  border:none; padding:12px 22px;
+  border-radius:10px; cursor:pointer;
+  align-self:flex-start;
+}
+
+/* ── ILLUSTRATION STRIP ── */
+.illus-strip {
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:36px;
+  display:flex;
+  align-items:center;
+  gap:40px;
+}
+.illus-text { flex:1; }
+.illus-eyebrow {
+  font-size:10px; font-weight:600;
+  color:var(--muted); letter-spacing:0.14em;
+  text-transform:uppercase; margin-bottom:10px;
+}
+.illus-heading {
+  font-family:'Syne',sans-serif;
+  font-size:22px; font-weight:700;
+  color:var(--charcoal); line-height:1.25;
+  margin-bottom:10px;
+}
+.illus-body {
+  font-size:14px; color:var(--muted); line-height:1.65;
+}
+.illus-svg { flex-shrink:0; width:200px; }
+
+@media(max-width:600px) {
+  .component-grid { grid-template-columns:1fr; }
+  .illus-strip { flex-direction:column; }
+  .hero { padding:40px 28px; }
+}
+</style>
+</head>
+<body>
+
+<div class="board">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Nivanto · Brand Identity · 2026</div>
+    <div class="hero-name">NIVANTO</div>
+    <div class="hero-tagline">Your dream, fully powered.</div>
+  </div>
+
+  <!-- COLORS -->
+  <div>
+    <div class="sec-label">Color Palette</div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-block" style="background:#2B5FAA"></div>
+        <div class="swatch-name">Confident Blue</div>
+        <div class="swatch-hex">#2B5FAA</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#E8900A"></div>
+        <div class="swatch-name">Warm Amber</div>
+        <div class="swatch-hex">#E8900A</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#F8F6F2;border:1px solid #E5E1D8!important"></div>
+        <div class="swatch-name">Warm White</div>
+        <div class="swatch-hex">#F8F6F2</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#1C2440"></div>
+        <div class="swatch-name">Deep Charcoal</div>
+        <div class="swatch-hex">#1C2440</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#6B7280"></div>
+        <div class="swatch-name">Muted Gray</div>
+        <div class="swatch-hex">#6B7280</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#E5E1D8"></div>
+        <div class="swatch-name">Warm Beige</div>
+        <div class="swatch-hex">#E5E1D8</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TYPOGRAPHY -->
+  <div>
+    <div class="sec-label">Typography — Syne + Bricolage Grotesque</div>
+    <div class="type-rows">
+      <div class="type-row">
+        <div class="type-meta">Syne 800<br>Display</div>
+        <div class="t-h1">Grow Bigger</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Syne 700<br>Heading</div>
+        <div class="t-h2">Powered by people who care</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Bricolage 400<br>Body</div>
+        <div class="t-body">We help businesses grow with smart tools, real strategy, and human support — from day one to full scale.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Bricolage 400<br>Caption</div>
+        <div class="t-caption">Nivanto Advisory · Business Growth Services · Chattogram, Bangladesh</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPONENTS -->
+  <div>
+    <div class="sec-label">UI Components</div>
+    <div class="component-grid">
+      <div class="wing-card">
+        <div class="wing-dot"></div>
+        <div class="wing-title">Nivanto Studio</div>
+        <div class="wing-desc">Full visual identities, logo systems, and brand postures built for businesses that want to be taken seriously.</div>
+        <span class="wing-tag">Brand Design</span>
+      </div>
+      <div class="cta-card">
+        <div>
+          <div class="cta-heading">Start your business journey today</div>
+          <div class="cta-sub">From brand to web to growth — we handle everything so you don't have to.</div>
+        </div>
+        <button class="cta-btn">Talk to us</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ILLUSTRATION STYLE -->
+  <div>
+    <div class="sec-label">Illustration Style</div>
+    <div class="illus-strip">
+      <div class="illus-text">
+        <div class="illus-eyebrow">Flat &amp; Clean</div>
+        <div class="illus-heading">Visual language that explains without overwhelming</div>
+        <div class="illus-body">Simple, friendly flat illustrations across all brand touchpoints — no stock photography, no complexity.</div>
+      </div>
+      <svg class="illus-svg" viewBox="0 0 200 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background -->
+        <rect width="200" height="170" rx="18" fill="#F0EDE8"/>
+
+        <!-- Chart bars -->
+        <rect x="30" y="110" width="26" height="45" rx="5" fill="#2B5FAA" opacity="0.18"/>
+        <rect x="66" y="88"  width="26" height="67" rx="5" fill="#2B5FAA" opacity="0.45"/>
+        <rect x="102" y="66" width="26" height="89" rx="5" fill="#2B5FAA"/>
+
+        <!-- Dashed growth line -->
+        <path d="M43 112 Q84 72 150 44" stroke="#E8900A" stroke-width="2.5" stroke-dasharray="5,4" stroke-linecap="round" fill="none"/>
+
+        <!-- Endpoint dot -->
+        <circle cx="150" cy="44" r="7" fill="#E8900A"/>
+        <circle cx="150" cy="44" r="12" fill="#E8900A" opacity="0.18"/>
+
+        <!-- Sparkle top right -->
+        <path d="M174 22 L176 16 L178 22 L184 24 L178 26 L176 32 L174 26 L168 24 Z" fill="#E8900A" opacity="0.6"/>
+
+        <!-- Laptop shape (bottom right) -->
+        <rect x="118" y="118" width="58" height="36" rx="6" fill="white" opacity="0.85"/>
+        <rect x="124" y="123" width="46" height="22" rx="3" fill="#2B5FAA" opacity="0.12"/>
+        <!-- Screen lines -->
+        <rect x="130" y="128" width="22" height="2" rx="1" fill="#2B5FAA" opacity="0.55"/>
+        <rect x="130" y="133" width="16" height="2" rx="1" fill="#2B5FAA" opacity="0.35"/>
+        <rect x="130" y="138" width="20" height="2" rx="1" fill="#E8900A" opacity="0.45"/>
+        <!-- Laptop base -->
+        <rect x="112" y="154" width="70" height="4" rx="2" fill="white" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
